@@ -29,12 +29,15 @@ $track = [];
 foreach ($horses as $key => $horse){
     echo "$key. $horse->name - $horse->coef" . PHP_EOL;
 }
-$myHorseKey = (int)readline("Choose your horse: ");
 
-if(!is_numeric($myHorseKey)) {
+while (true) {
+    $myHorseKey = (int)readline("Choose your horse: ");
+    if(is_numeric($myHorseKey)) {
+        break;
+    }
     echo "Please enter a valid number..." . PHP_EOL;
-    exit;
 }
+
 foreach ($horses as $key => $horse){
     if ($myHorseKey === $key){
         $myHorse = $horse;
